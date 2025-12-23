@@ -118,9 +118,8 @@ const Home = () => {
                                                 loop 
                                                 autoPlay 
                                                 playsInline
-                                                preload="auto"
+                                                preload="metadata"
                                                 style={{ width: '100%', height: '100%', objectFit: 'cover', pointerEvents: 'none' }}
-                                                onLoadedData={(e) => e.target.play().catch(() => {})}
                                             >
                                                 <source src={item.src} type="video/mp4" />
                                             </video>
