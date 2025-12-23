@@ -1,6 +1,9 @@
 import React from 'react';
+import { useTheme } from '../context/ThemeContext';
 
 const Works = () => {
+  const { colors } = useTheme();
+  
   const education = [
     {
       degree: "B.Sc. in Physics & Computer Engineering",
@@ -38,21 +41,21 @@ const Works = () => {
 
   return (
     <div style={{ paddingTop: '120px', maxWidth: '1000px', margin: '0 auto', paddingLeft: '20px', paddingRight: '20px', paddingBottom: '60px' }}>
-      <h1 className="animate-section" style={{ fontSize: '3rem', marginBottom: '40px' }}>Research & <span className="highlight">Experience</span></h1>
+      <h1 className="animate-section" style={{ fontSize: '3rem', marginBottom: '40px', color: colors.text }}>Research & <span style={{ color: colors.accent }}>Experience</span></h1>
       
       {/* Education Section */}
-      <h2 className="animate-section delay-1" style={{ color: '#e6f1ff', marginBottom: '30px' }}>Education</h2>
+      <h2 className="animate-section delay-1" style={{ color: colors.text, marginBottom: '30px' }}>Education</h2>
       <div className="animate-section delay-2" style={{ marginBottom: '60px' }}>
         {education.map((edu, index) => (
-          <div key={index} style={{ background: '#112240', padding: '30px', borderRadius: '8px', borderLeft: '4px solid #64ffda' }}>
+          <div key={index} style={{ background: colors.cardBg, padding: '30px', borderRadius: '8px', borderLeft: `4px solid ${colors.accent}`, boxShadow: `0 10px 30px -15px ${colors.shadow}` }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '10px' }}>
               <div>
-                <h3 style={{ fontSize: '1.5rem', color: '#e6f1ff', marginBottom: '5px' }}>{edu.degree}</h3>
-                <p style={{ color: '#64ffda', marginBottom: '5px' }}>{edu.school}</p>
-                <p style={{ color: '#8892b0', fontSize: '0.9rem' }}>{edu.location}</p>
-                {edu.details && <p style={{ color: '#a8b2d1', marginTop: '10px', fontStyle: 'italic' }}>{edu.details}</p>}
+                <h3 style={{ fontSize: '1.5rem', color: colors.text, marginBottom: '5px' }}>{edu.degree}</h3>
+                <p style={{ color: colors.accent, marginBottom: '5px' }}>{edu.school}</p>
+                <p style={{ color: colors.textSecondary, fontSize: '0.9rem' }}>{edu.location}</p>
+                {edu.details && <p style={{ color: colors.textSecondary, marginTop: '10px', fontStyle: 'italic' }}>{edu.details}</p>}
               </div>
-              <span style={{ background: 'rgba(100, 255, 218, 0.1)', color: '#64ffda', padding: '5px 15px', borderRadius: '15px', fontSize: '0.85rem' }}>
+              <span style={{ background: `${colors.accent}20`, color: colors.accent, padding: '5px 15px', borderRadius: '15px', fontSize: '0.85rem' }}>
                 {edu.period}
               </span>
             </div>
@@ -61,32 +64,32 @@ const Works = () => {
       </div>
 
       {/* Research Experience */}
-      <h2 className="animate-section delay-1" style={{ color: '#e6f1ff', marginBottom: '30px' }}>Research Experience</h2>
+      <h2 className="animate-section delay-1" style={{ color: colors.text, marginBottom: '30px' }}>Research Experience</h2>
       <div className="works-grid animate-section delay-2" style={{ display: 'grid', gap: '30px', marginBottom: '60px' }}>
         {research.map(item => (
-          <div key={item.id} className="card-hover" style={{ background: '#112240', padding: '30px', borderRadius: '8px', borderLeft: '4px solid #64ffda' }}>
+          <div key={item.id} className="card-hover" style={{ background: colors.cardBg, padding: '30px', borderRadius: '8px', borderLeft: `4px solid ${colors.accent}`, boxShadow: `0 10px 30px -15px ${colors.shadow}` }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px', flexWrap: 'wrap', gap: '10px' }}>
-              <h3 style={{ fontSize: '1.5rem', color: '#e6f1ff' }}>{item.title}</h3>
-              <span style={{ background: 'rgba(100, 255, 218, 0.1)', color: '#64ffda', padding: '5px 10px', borderRadius: '15px', fontSize: '0.8rem' }}>
+              <h3 style={{ fontSize: '1.5rem', color: colors.text }}>{item.title}</h3>
+              <span style={{ background: `${colors.accent}20`, color: colors.accent, padding: '5px 10px', borderRadius: '15px', fontSize: '0.8rem' }}>
                 {item.status}
               </span>
             </div>
-            <p style={{ color: '#64ffda', marginBottom: '10px', fontSize: '0.9rem' }}>{item.lab}</p>
-            <p style={{ color: '#a8b2d1' }}>{item.description}</p>
+            <p style={{ color: colors.accent, marginBottom: '10px', fontSize: '0.9rem' }}>{item.lab}</p>
+            <p style={{ color: colors.textSecondary }}>{item.description}</p>
           </div>
         ))}
       </div>
 
       {/* Teaching Experience */}
-      <h2 className="animate-section delay-1" style={{ color: '#e6f1ff', marginBottom: '30px' }}>Teaching Experience</h2>
-      <div className="animate-section delay-2" style={{ background: '#112240', padding: '30px', borderRadius: '8px' }}>
+      <h2 className="animate-section delay-1" style={{ color: colors.text, marginBottom: '30px' }}>Teaching Experience</h2>
+      <div className="animate-section delay-2" style={{ background: colors.cardBg, padding: '30px', borderRadius: '8px', boxShadow: `0 10px 30px -15px ${colors.shadow}` }}>
         {teaching.map((item, index) => (
-          <div key={index} style={{ display: 'flex', justifyContent: 'space-between', padding: '15px 0', borderBottom: index !== teaching.length - 1 ? '1px solid rgba(255,255,255,0.1)' : 'none', flexWrap: 'wrap', gap: '10px' }}>
+          <div key={index} style={{ display: 'flex', justifyContent: 'space-between', padding: '15px 0', borderBottom: index !== teaching.length - 1 ? `1px solid ${colors.border}` : 'none', flexWrap: 'wrap', gap: '10px' }}>
             <div>
-              <span style={{ color: '#e6f1ff', fontWeight: 'bold', display: 'block' }}>{item.course}</span>
-              <span style={{ color: '#8892b0', fontSize: '0.9rem' }}>{item.role}</span>
+              <span style={{ color: colors.text, fontWeight: 'bold', display: 'block' }}>{item.course}</span>
+              <span style={{ color: colors.textSecondary, fontSize: '0.9rem' }}>{item.role}</span>
             </div>
-            <span style={{ color: '#64ffda', fontSize: '0.9rem' }}>{item.term}</span>
+            <span style={{ color: colors.accent, fontSize: '0.9rem' }}>{item.term}</span>
           </div>
         ))}
       </div>
@@ -96,8 +99,22 @@ const Works = () => {
         <a 
           href={process.env.PUBLIC_URL + "/assets/cv.pdf"} 
           download
-          className="btn-primary"
-          style={{ display: 'inline-flex', alignItems: 'center', gap: '10px' }}
+          style={{ 
+            display: 'inline-flex', 
+            alignItems: 'center', 
+            gap: '10px',
+            padding: '1rem 1.5rem',
+            background: 'transparent',
+            border: `1px solid ${colors.accent}`,
+            borderRadius: '4px',
+            color: colors.accent,
+            fontSize: '0.95rem',
+            cursor: 'pointer',
+            transition: 'all 0.3s ease',
+            textDecoration: 'none'
+          }}
+          onMouseOver={(e) => e.currentTarget.style.background = `${colors.accent}20`}
+          onMouseOut={(e) => e.currentTarget.style.background = 'transparent'}
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>

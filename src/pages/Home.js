@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useTheme } from '../context/ThemeContext';
 
 const Home = () => {
     const [selectedItem, setSelectedItem] = useState(null);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const { colors } = useTheme();
 
     const items = [
         {
@@ -66,21 +68,21 @@ const Home = () => {
             }}>
                 
                 <div className="intro-section" style={{ textAlign: 'center', maxWidth: '800px' }}>
-                    <h1><span className="highlight">Enes Talha Günay</span></h1>
-                    <p className="subtitle" style={{ marginTop: '1.5rem', fontSize: '1.1rem', lineHeight: '1.6' }}>
-                        <span style={{ fontSize: '1rem', opacity: 0.9, display: 'block', marginBottom: '15px', color: '#8892b0' }}>
+                    <h1><span style={{ color: colors.accent }}>Enes Talha Günay</span></h1>
+                    <p className="subtitle" style={{ marginTop: '1.5rem', fontSize: '1.1rem', lineHeight: '1.6', color: colors.text }}>
+                        <span style={{ fontSize: '1rem', opacity: 0.9, display: 'block', marginBottom: '15px', color: colors.textSecondary }}>
                             Koç University
                         </span>
                         Investigating how computational abilities emerge from physical interactions in biological systems.
                         <br/>
-                        <span style={{ fontSize: '0.95rem', opacity: 0.8, display: 'block', marginTop: '15px', color: '#64ffda' }}>
+                        <span style={{ fontSize: '0.95rem', opacity: 0.8, display: 'block', marginTop: '15px', color: colors.accent }}>
                             The Physics of Intelligence
                         </span>
                     </p>
                 </div>
 
                 <div className="experiments-section" style={{ width: '100%' }}>
-                    <h2 style={{ marginBottom: '2rem', fontSize: '1.5rem', color: '#ccd6f6', textAlign: 'center' }}>Experimental Observations</h2>
+                    <h2 style={{ marginBottom: '2rem', fontSize: '1.5rem', color: colors.text, textAlign: 'center' }}>Experimental Observations</h2>
                     
                     <div className="video-grid" style={{ 
                         display: 'flex', 
@@ -97,14 +99,15 @@ const Home = () => {
                                 onClick={() => item.type === 'video' && handleItemClick(item)}
                                 style={{ 
                                     cursor: item.type === 'video' ? 'pointer' : 'default', 
-                                    background: '#112240', 
+                                    background: colors.cardBg, 
                                     padding: '1rem', 
                                     borderRadius: '8px',
-                                    transition: 'transform 0.2s ease',
+                                    transition: 'transform 0.2s ease, background 0.3s ease',
                                     minWidth: '350px', 
                                     width: '400px', 
                                     maxWidth: '100%',
-                                    flexShrink: 0 
+                                    flexShrink: 0,
+                                    boxShadow: `0 10px 30px -15px ${colors.shadow}`
                                 }}
                                 onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-5px)'}
                                 onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
@@ -135,14 +138,14 @@ const Home = () => {
                                                 display: 'flex',
                                                 alignItems: 'center',
                                                 justifyContent: 'center',
-                                                border: '2px solid #64ffda'
+                                                border: `2px solid ${colors.accent}`
                                             }}>
                                                 <div style={{
                                                     width: 0, 
                                                     height: 0, 
                                                     borderTop: '8px solid transparent',
                                                     borderBottom: '8px solid transparent',
-                                                    borderLeft: '16px solid #64ffda',
+                                                    borderLeft: `16px solid ${colors.accent}`,
                                                     marginLeft: '4px'
                                                 }}></div>
                                             </div>
@@ -175,7 +178,7 @@ const Home = () => {
                                                     top: '50%',
                                                     transform: 'translateY(-50%)',
                                                     background: 'rgba(0,0,0,0.6)',
-                                                    color: '#64ffda',
+                                                    color: colors.accent,
                                                     border: 'none',
                                                     borderRadius: '50%',
                                                     width: '32px',
@@ -200,7 +203,7 @@ const Home = () => {
                                                     top: '50%',
                                                     transform: 'translateY(-50%)',
                                                     background: 'rgba(0,0,0,0.6)',
-                                                    color: '#64ffda',
+                                                    color: colors.accent,
                                                     border: 'none',
                                                     borderRadius: '50%',
                                                     width: '32px',
@@ -234,8 +237,8 @@ const Home = () => {
                                     )}
                                 </div>
                                 <div className="video-info" style={{ marginTop: '0.8rem' }}>
-                                    <h3 style={{ fontSize: '1.1rem', marginBottom: '0.4rem', lineHeight: '1.3' }}>{item.title}</h3>
-                                    <p style={{ fontSize: '0.9rem', opacity: 0.8, lineHeight: '1.4' }}>{item.description}</p>
+                                    <h3 style={{ fontSize: '1.1rem', marginBottom: '0.4rem', lineHeight: '1.3', color: colors.text }}>{item.title}</h3>
+                                    <p style={{ fontSize: '0.9rem', opacity: 0.8, lineHeight: '1.4', color: colors.textSecondary }}>{item.description}</p>
                                 </div>
                             </div>
                         ))}
@@ -271,10 +274,10 @@ const Home = () => {
                             maxHeight: '90vh',
                             display: 'flex',
                             flexDirection: 'column',
-                            background: '#112240',
+                            background: colors.cardBg,
                             padding: '1rem',
                             borderRadius: '8px',
-                            boxShadow: '0 10px 30px -10px rgba(2,12,27,0.7)'
+                            boxShadow: `0 10px 30px -10px ${colors.shadow}`
                         }}
                     >
                         <button 
@@ -317,9 +320,9 @@ const Home = () => {
                                 </video>
                             </div>
 
-                            <div style={{ padding: '0 0.5rem', color: '#fff' }}>
-                                <h3 style={{ textAlign: 'center', marginBottom: '0.5rem', color: '#ccd6f6' }}>{selectedItem.title}</h3>
-                                <p style={{ textAlign: 'center', lineHeight: '1.6', color: '#8892b0' }}>{selectedItem.description}</p>
+                            <div style={{ padding: '0 0.5rem', color: colors.text }}>
+                                <h3 style={{ textAlign: 'center', marginBottom: '0.5rem', color: colors.text }}>{selectedItem.title}</h3>
+                                <p style={{ textAlign: 'center', lineHeight: '1.6', color: colors.textSecondary }}>{selectedItem.description}</p>
                             </div>
                         </div>
                     </div>
