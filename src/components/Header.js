@@ -7,10 +7,15 @@ const Header = () => {
     const [hoveredLink, setHoveredLink] = useState(null);
     const { isDark, toggleTheme, colors } = useTheme();
 
+    const handleThemeToggle = () => {
+        setMenuOpen(false); // Close menu when toggling theme
+        toggleTheme();
+    };
+
     const linkStyle = (linkName) => ({
         color: hoveredLink === linkName ? colors.accent : colors.text,
         textDecoration: 'none',
-        transition: 'color 0.2s ease',
+        transition: 'color 0.3s ease',
         fontSize: '0.95rem'
     });
 
@@ -87,7 +92,7 @@ const Header = () => {
 
                 {/* Theme Toggle Button */}
                 <button
-                    onClick={toggleTheme}
+                    onClick={handleThemeToggle}
                     style={{
                         background: 'none',
                         border: `1px solid ${colors.accent}`,
@@ -130,48 +135,65 @@ const Header = () => {
 
             {/* Mobile Nav Overlay */}
             {menuOpen && (
-                <div style={{
-                    position: 'fixed',
-                    top: 0,
-                    right: 0,
-                    width: '70%',
-                    maxWidth: '300px',
-                    height: '100vh',
-                    background: colors.backgroundSecondary,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '2rem',
-                    boxShadow: `-10px 0 30px -10px ${colors.shadow}`,
-                    transition: 'background 0.3s ease'
-                }} className="mobile-nav">
-                    <Link to="/" onClick={() => setMenuOpen(false)} style={{ color: colors.text, textDecoration: 'none', fontSize: '1.2rem' }}>Home</Link>
-                    <Link to="/works" onClick={() => setMenuOpen(false)} style={{ color: colors.text, textDecoration: 'none', fontSize: '1.2rem' }}>Works</Link>
-                    <Link to="/publications" onClick={() => setMenuOpen(false)} style={{ color: colors.text, textDecoration: 'none', fontSize: '1.2rem' }}>Publications</Link>
-                    <Link to="/research" onClick={() => setMenuOpen(false)} style={{ color: colors.text, textDecoration: 'none', fontSize: '1.2rem' }}>Research</Link>
-                    <Link to="/contact" onClick={() => setMenuOpen(false)} style={{ color: colors.text, textDecoration: 'none', fontSize: '1.2rem' }}>Contact</Link>
-                    
-                    {/* Mobile Theme Toggle */}
-                    <button
-                        onClick={toggleTheme}
+                <>
+                    {/* Dark backdrop */}
+                    <div 
+                        onClick={() => setMenuOpen(false)}
                         style={{
-                            background: 'none',
-                            border: `1px solid ${colors.accent}`,
-                            borderRadius: '25px',
-                            padding: '0.5rem 1.5rem',
-                            cursor: 'pointer',
-                            color: colors.accent,
-                            fontSize: '1rem',
-                            marginTop: '1rem',
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '0.5rem'
+                            position: 'fixed',
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            height: '100vh',
+                            background: 'rgba(0, 0, 0, 0.5)',
+                            zIndex: 99
                         }}
-                    >
-                        {isDark ? '☀️ Light' : '🌙 Dark'}
-                    </button>
-                </div>
+                    />
+                    <div style={{
+                        position: 'fixed',
+                        top: 0,
+                        right: 0,
+                        width: '70%',
+                        maxWidth: '300px',
+                        height: '100vh',
+                        background: colors.backgroundSecondary,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '2rem',
+                        boxShadow: `-10px 0 30px -10px ${colors.shadow}`,
+                        zIndex: 100,
+                        transition: 'all 0.3s ease'
+                    }} className="mobile-nav">
+                        <Link to="/" onClick={() => setMenuOpen(false)} style={{ color: colors.text, textDecoration: 'none', fontSize: '1.2rem', transition: 'color 0.3s ease' }}>Home</Link>
+                        <Link to="/works" onClick={() => setMenuOpen(false)} style={{ color: colors.text, textDecoration: 'none', fontSize: '1.2rem', transition: 'color 0.3s ease' }}>Works</Link>
+                        <Link to="/publications" onClick={() => setMenuOpen(false)} style={{ color: colors.text, textDecoration: 'none', fontSize: '1.2rem', transition: 'color 0.3s ease' }}>Publications</Link>
+                        <Link to="/research" onClick={() => setMenuOpen(false)} style={{ color: colors.text, textDecoration: 'none', fontSize: '1.2rem', transition: 'color 0.3s ease' }}>Research</Link>
+                        <Link to="/contact" onClick={() => setMenuOpen(false)} style={{ color: colors.text, textDecoration: 'none', fontSize: '1.2rem', transition: 'color 0.3s ease' }}>Contact</Link>
+                        
+                        {/* Mobile Theme Toggle */}
+                        <button
+                            onClick={handleThemeToggle}
+                            style={{
+                                background: 'none',
+                                border: `1px solid ${colors.accent}`,
+                                borderRadius: '25px',
+                                padding: '0.5rem 1.5rem',
+                                cursor: 'pointer',
+                                color: colors.accent,
+                                fontSize: '1rem',
+                                marginTop: '1rem',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '0.5rem',
+                                transition: 'all 0.3s ease'
+                            }}
+                        >
+                            {isDark ? '☀️ Light' : '🌙 Dark'}
+                        </button>
+                    </div>
+                </>
             )}
 
             <style>{`
