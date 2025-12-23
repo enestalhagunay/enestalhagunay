@@ -86,11 +86,11 @@ const Home = () => {
                     
                     <div className="video-grid" style={{ 
                         display: 'flex', 
-                        flexWrap: 'nowrap', 
+                        flexWrap: 'wrap', 
                         justifyContent: 'center', 
                         gap: '2rem',
-                        overflowX: 'auto', 
-                        paddingBottom: '1rem'
+                        paddingBottom: '1rem',
+                        width: '100%'
                     }}>
                         {items.map((item) => (
                             <div 

@@ -24,9 +24,23 @@ export const ThemeProvider = ({ children }) => {
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
         // Update document class for CSS variables
         document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+        
+        const bgColor = isDark ? '#0a192f' : '#f8fafc';
+        const textColor = isDark ? '#ccd6f6' : '#1e293b';
+        
+        // Update html element
+        document.documentElement.style.backgroundColor = bgColor;
+        
         // Update body background directly
-        document.body.style.backgroundColor = isDark ? '#0a192f' : '#f8fafc';
-        document.body.style.color = isDark ? '#ccd6f6' : '#1e293b';
+        document.body.style.backgroundColor = bgColor;
+        document.body.style.color = textColor;
+        
+        // Also set on #root if it exists
+        const root = document.getElementById('root');
+        if (root) {
+            root.style.backgroundColor = bgColor;
+            root.style.minHeight = '100dvh';
+        }
     }, [isDark]);
 
     const toggleTheme = () => setIsDark(!isDark);
