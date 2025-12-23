@@ -8,27 +8,27 @@ const Home = () => {
         {
             id: 1,
             type: 'video',
-            src: "/assets/videos/fast_spiral.mp4",
+            src: process.env.PUBLIC_URL + "/assets/videos/fast_spiral.mp4",
             title: "Fast Spiral Dynamics",
             description: "Observation of spiral wave patterns emerging from bacterial interactions."
         },
         {
             id: 2,
             type: 'video',
-            src: "/assets/videos/output.mp4",
+            src: process.env.PUBLIC_URL + "/assets/videos/output.mp4",
             title: "Simulation of Non-Reciprocally Coupled Kuramoto Oscillators",
             description: "Analysis of coupled oscillator with phase lag."
         },
         {
             id: 3,
             type: 'image-grid',
-            title: "Bacterial Biofilm Patterns AND Neuronal Dynamics",
-            description: "Experimental images showcasing different aspects of bacterial pattern formation.",
+            title: "Bacterial Biofilm Patterns and Neuronal Dynamics",
+            description: "A collection of images showcasing experimental setups and observed patterns.",
             images: [
-                { src: "/assets/photos/Picture1.png", caption: "Experimental Setup" },
-                { src: "/assets/photos/1.jpg", caption: "Coexisting of Spiral, Planar and Target Patterns" },
-                { src: "/assets/photos/Picture6.png", caption: "Temperature Gradient" },
-                { src: "/assets/photos/Picture3.png", caption: " Dynamical Systems" }
+                { src: process.env.PUBLIC_URL + "/assets/photos/Picture1.png", caption: "Experimental Setup" },
+                { src: process.env.PUBLIC_URL + "/assets/photos/1.jpg", caption: "Coexisting of Spiral, Planar and Target Patterns" },
+                { src: process.env.PUBLIC_URL + "/assets/photos/Picture6.png", caption: "Temperature Gradient" },
+                { src: process.env.PUBLIC_URL + "/assets/photos/Picture3.png", caption: " Dynamical Systems" }
             ]
         }
     ];

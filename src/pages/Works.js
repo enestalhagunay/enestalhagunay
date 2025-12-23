@@ -94,7 +94,7 @@ const Works = () => {
       {/* CV Download */}
       <div className="animate-section delay-3" style={{ textAlign: 'center', marginTop: '60px' }}>
         <a 
-          href="/assets/cv.pdf" 
+          href={process.env.PUBLIC_URL + "/assets/cv.pdf"} 
           download
           className="btn-primary"
           style={{ display: 'inline-flex', alignItems: 'center', gap: '10px' }}
