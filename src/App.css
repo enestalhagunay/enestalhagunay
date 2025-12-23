@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #0a192f;
+    color: #ccd6f6;
+}
+
+.home-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.intro-section h1 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.intro-section .highlight {
+    color: #64ffda;
+}
+
+.subtitle {
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.experiments-section {
+    width: 100%;
+}
+
+.video-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 2rem;
+    overflow-x: auto;
+}
+
+.video-card {
+    cursor: pointer;
+    background: #112240;
+    padding: 1rem;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+    min-width: 350px;
+    width: 400px;
+    max-width: 100%;
+    flex-shrink: 0;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+}
+
+.video-thumbnail {
+    height: 225px;
+    background: #000;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.video-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+}
+
+.video-info p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    line-height: 1.4;
+}
+
+.video-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 900px;
+    position: relative;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    background: #112240;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+}
+
+.modal-content button {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.modal-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 0.8rem;
+    text-align: center;
+    color: #fff;
+    font-size: 1rem;
+}

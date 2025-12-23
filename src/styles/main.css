@@ -1,0 +1,23 @@
+/* Main styles - imports or additional styles can be added here */
+
+/* App container styles */
+.app-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-wrapper {
+    flex: 1;
+}
+
+.main-footer {
+    text-align: center;
+    padding: 2rem;
+    color: #8892b0;
+    font-size: 0.9rem;
+}
+
+.main-footer p {
+    margin: 0;
+}
