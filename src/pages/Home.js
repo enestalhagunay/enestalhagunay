@@ -56,7 +56,7 @@ const Home = () => {
     };
 
     return (
-        <div className="home-page" style={{ paddingTop: '100px', minHeight: '100vh', position: 'relative' }}>
+        <div className="home-page" style={{ paddingTop: '100px', minHeight: '100vh', position: 'relative', transition: 'all 0.3s ease' }}>
             <div className="content-container" style={{ 
                 display: 'flex', 
                 flexDirection: 'column', 
@@ -68,21 +68,21 @@ const Home = () => {
             }}>
                 
                 <div className="intro-section" style={{ textAlign: 'center', maxWidth: '800px' }}>
-                    <h1><span style={{ color: colors.accent }}>Enes Talha Günay</span></h1>
-                    <p className="subtitle" style={{ marginTop: '1.5rem', fontSize: '1.1rem', lineHeight: '1.6', color: colors.text }}>
-                        <span style={{ fontSize: '1rem', opacity: 0.9, display: 'block', marginBottom: '15px', color: colors.textSecondary }}>
+                    <h1><span style={{ color: colors.accent, transition: 'color 0.3s ease' }}>Enes Talha Günay</span></h1>
+                    <p className="subtitle" style={{ marginTop: '1.5rem', fontSize: '1.1rem', lineHeight: '1.6', color: colors.text, transition: 'color 0.3s ease' }}>
+                        <span style={{ fontSize: '1rem', opacity: 0.9, display: 'block', marginBottom: '15px', color: colors.textSecondary, transition: 'color 0.3s ease' }}>
                             Koç University
                         </span>
                         Investigating how computational abilities emerge from physical interactions in biological systems.
                         <br/>
-                        <span style={{ fontSize: '0.95rem', opacity: 0.8, display: 'block', marginTop: '15px', color: colors.accent }}>
+                        <span style={{ fontSize: '0.95rem', opacity: 0.8, display: 'block', marginTop: '15px', color: colors.accent, transition: 'color 0.3s ease' }}>
                             The Physics of Intelligence
                         </span>
                     </p>
                 </div>
 
                 <div className="experiments-section" style={{ width: '100%' }}>
-                    <h2 style={{ marginBottom: '2rem', fontSize: '1.5rem', color: colors.text, textAlign: 'center' }}>Experimental Observations</h2>
+                    <h2 style={{ marginBottom: '2rem', fontSize: '1.5rem', color: colors.text, textAlign: 'center', transition: 'color 0.3s ease' }}>Experimental Observations</h2>
                     
                     <div className="video-grid" style={{ 
                         display: 'flex', 
@@ -237,8 +237,8 @@ const Home = () => {
                                     )}
                                 </div>
                                 <div className="video-info" style={{ marginTop: '0.8rem' }}>
-                                    <h3 style={{ fontSize: '1.1rem', marginBottom: '0.4rem', lineHeight: '1.3', color: colors.text }}>{item.title}</h3>
-                                    <p style={{ fontSize: '0.9rem', opacity: 0.8, lineHeight: '1.4', color: colors.textSecondary }}>{item.description}</p>
+                                    <h3 style={{ fontSize: '1.1rem', marginBottom: '0.4rem', lineHeight: '1.3', color: colors.text, transition: 'color 0.3s ease' }}>{item.title}</h3>
+                                    <p style={{ fontSize: '0.9rem', opacity: 0.8, lineHeight: '1.4', color: colors.textSecondary, transition: 'color 0.3s ease' }}>{item.description}</p>
                                 </div>
                             </div>
                         ))}
